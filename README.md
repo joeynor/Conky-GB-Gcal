@@ -9,10 +9,10 @@ This conky theme was forked and aesthetically modified from [ConkyPorn](https://
 
 Thank you _ConkyPorn_.
 
-I don't have a powerful computer, so for my display  I only needed two cpu cores. You can have more, please refer to _ConkyPorn's_ original code.
+I don't have a powerful computer, so for my display, I only needed two cpu cores. You can have more, please refer to _ConkyPorn's_ original code.
 
-Also, it my setup, I moved things around and used smaller fonts, cause my screen resolution is not high enough. To make things fit, I basically
-made it wider with more items and smaller fonts. 
+Also, in my setup, I moved things around and used smaller fonts, cause my screen resolution is not high enough.
+To make things fit, I basically made it wider with more items and smaller fonts. 
 
 
 ## How to install
@@ -21,11 +21,11 @@ made it wider with more items and smaller fonts.
 2. Copy the ttf font to a folder in .fonts
 2. Make sure you install conky-all or/with conky with lua support. On debian systems, this should work
 
-``$sudo apt-get install conky-all``
+   ``$sudo apt-get install conky-all``
 
 3. You can run the conky script wth
 
-``$conky -b -c .conky/conkyrc_Grey-Black``
+   ``$conky -b -c .conky/conkyrc_GB_Gcal``
 
 4. The -b seems to avoid flickering and -c specifies the configuration files to use 
 
