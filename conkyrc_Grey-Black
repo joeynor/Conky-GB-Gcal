@@ -95,8 +95,8 @@ ${goto 310}${tcp_portmon 1 65535 rip  1}
 ${goto 310}${tcp_portmon 1 65535 rip  2}
 ${goto 310}${tcp_portmon 1 65535 rip  3}
 ${goto 310}${tcp_portmon 1 65535 rip  4}
-${voffset 5}${goto 215}${font Technical CE:bold:size=10}CALENDAR${font}
-${font DejaVu Sans Mono:size=6}${voffset -15}${execpi 300 export PYTHONIOENCODING=utf8 && gcalcli --conky --nolineart calw 2 --monday --width 15}
-${font DejaVu Sans Mono:size=6}${voffset -15}${execpi 300 export PYTHONIOENCODING=utf8 && gcalcli --conky --nolineart agenda}
+#${voffset 5}${goto 215}${font Technical CE:bold:size=10}CALENDAR${font}
+#${font DejaVu Sans Mono:size=6}${voffset -15}${execpi 300 export PYTHONIOENCODING=utf8 && gcalcli --conky --nolineart calw 2 --monday --width 15}
+#${font DejaVu Sans Mono:size=6}${voffset -15}${execpi 300 export PYTHONIOENCODING=utf8 && gcalcli --conky --nolineart agenda}
 ]]
 ;
