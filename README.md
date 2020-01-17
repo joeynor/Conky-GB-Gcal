@@ -1,6 +1,6 @@
 # Conky Grey Black variant with gcalcli for calendar and agenda Display
 
-![Screenshot](https://github.com/joeynor/Conky-GB-Gcal/blob/master/Screenshot-20190906224015-250x1056.png)
+![Screenshot](https://github.com/joeynor/Conky-GB-Gcal/blob/master/Screenshot_2020-01-17_14-01-39.png)
 
 
 ## Introduction
