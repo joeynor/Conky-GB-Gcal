@@ -1,0 +1,102 @@
+conky.config = {
+	background = false,
+	update_interval = 1,
+
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	temperature_unit = 'celsius',
+
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 2048,
+
+	gap_x = 5,
+	gap_y = 5,
+	minimum_width = 20, minimum_height = 40,
+	own_window = true,
+	own_window_class = 'Conky',
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_argb_value = 145,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_colour = '#000000',
+	background = false,
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+	alignment = 'top_right',
+
+-- Misc Console #
+        out_to_console = false,
+        out_to_stderr = false,
+        extra_newline = false,
+
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+	override_utf8_locale = true,
+	use_xft = true,
+	font = 'Technical CE:size=6',
+	xftalpha = 0.5,
+	uppercase = false,
+	xinerama_head = 1,
+	default_color = 'white',
+
+	lua_load = '~/.conky/conky_grey.lua',
+	lua_draw_hook_post = 'main',
+};
+
+conky.text = [[
+${goto 10}${font Technical CE:bold:size=10}INFO:${voffset -5}
+${goto 15}${font}${exec cat /etc/issue.net}${goto 215}Kernel:  $kernel
+${goto 15}${execi 1000 cat /proc/cpuinfo|grep 'model name'|sed -e 's/model name.*: //'| uniq | cut -c 1-32} ${goto 215}OS: $sysname ($machine)
+${goto 15}CPU Speed: ${exec cat /proc/cpuinfo | grep 'model name' | uniq | awk '{print $9}' }${goto 215}UPDATES: ${execi 360 aptitude search "~U" | wc -l | tail}
+
+${voffset -60}${font LCDMono2:size=24}${goto 480}${color green}${time %H:%M}${font}
+${voffset 2}${goto 480}${time %a %d %b}  
+$color
+${goto 10}${font Technical CE:bold:size=10}CPU & MEM:
+${voffset -36}
+${goto 210}${font Technical CE:bold:size=10}CPU PROCESSES: ${font}
+${goto 215}${top name 1}${goto 330}${top cpu 1}%
+${goto 215}${top name 2}${goto 330}${top cpu 2}%
+${goto 215}${top name 3}${goto 330}${top cpu 3}%
+${goto 215}${top name 3}${goto 330}${top cpu 4}%
+${goto 215}${top name 3}${goto 330}${top cpu 5}%
+${voffset -82}
+${goto 410}${font Technical CE:bold:size=10}MEM PROCESSES: ${font}
+${goto 415}${top_mem name 1}${goto 530}${top mem 1}%
+${goto 415}${top_mem name 2}${goto 530}${top mem 2}%
+${goto 415}${top_mem name 3}${goto 530}${top mem 3}%
+${goto 415}${top_mem name 3}${goto 530}${top mem 4}%
+${goto 415}${top_mem name 3}${goto 530}${top mem 5}%
+${voffset 5}${goto 210}${font Technical CE:bold:size=10}FILESYSTEM: ${font}
+${voffset -12}${goto 320}/ $color${fs_used /}/${fs_size /}${goto 415}${fs_bar 5,140 /}    
+${goto 210}${font Technical CE:bold:size=10}SWAP USAGE:${font}
+${voffset -12}${goto 320}$swap/$swapmax - $swapperc%${goto 415}${swapbar 5,140}   
+${goto 210}${font Technical CE:bold:size=10}TEMPERATURE: ${font}${goto 320}Core0:   ${execi 30 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C${goto 390}Core1:${goto 425}${execi 30 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C
+${voffset 15}
+${goto 10}${font Technical CE:bold:size=10}WIFI:${goto 140}LAN:${goto 290}NETWORK:
+${voffset 20}
+${goto 60}${font Technical CE:bold:size=8}${color red}Up: $color${upspeed wlp2s0}
+${goto 60}${color green}Down:$color ${downspeed wlps0}
+${voffset -45} 
+${goto 200}${color red}Up: $color${upspeed enp3s0f2}
+${goto 200}${color green}Down:$color ${downspeed enp3s0f2}
+${voffset -100} 
+${font Technical CE:bold:size=10}${font}
+${goto 295}Wan:  ${execi 3600 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}
+${goto 295}Lan:  ${addr wlp2s0}
+${goto 295}Inbound Ports:${goto 350}${tcp_portmon 1 32767 count}
+${goto 295}Outbound Ports:${goto 360}${tcp_portmon 32768 61000 count}
+${goto 295}IP:${goto 310}${tcp_portmon 1 65535 rip  0}
+${goto 310}${tcp_portmon 1 65535 rip  1}
+${goto 310}${tcp_portmon 1 65535 rip  2}
+${goto 310}${tcp_portmon 1 65535 rip  3}
+${goto 310}${tcp_portmon 1 65535 rip  4}
+${voffset 5}${goto 215}${font Technical CE:bold:size=10}CALENDAR${font}
+${font DejaVu Sans Mono:size=6}${voffset -15}${execpi 300 export PYTHONIOENCODING=utf8 && gcalcli --conky --nolineart calw 2 --monday --width 15}
+${font DejaVu Sans Mono:size=6}${voffset -15}${execpi 300 export PYTHONIOENCODING=utf8 && gcalcli --conky --nolineart agenda}
+]]
+;
