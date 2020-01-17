@@ -23,7 +23,7 @@ To make things fit, I basically made it wider with more items and smaller fonts.
 
    ``$sudo apt-get install conky-all``
 
-3. You can run the conky script wth
+3. You can run the conky script with
 
    ``$conky -b -c .conky/conkyrc_GB_Gcal``
 
@@ -31,7 +31,7 @@ To make things fit, I basically made it wider with more items and smaller fonts.
 
 ## Getting the google calendar to work
 
-1. I have disabled the gcalcli by default, to enable it, uncomment the last two lines
+1. I have disabled the gcalcli by default, to enable it, uncomment the last three lines
 
 ```bash
    #${voffset 5}${goto 215}${font Technical CE:bold:size=10}CALENDAR${font}
